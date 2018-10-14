@@ -15,5 +15,5 @@ install:
 script:
   - echo $TRAVIS_COMMIT  
   - COLLECT_ERROR=True fandogh login --username=$FANDOGH_USERNAME --password=$FANDOGH_PASSWORD
-  - cd vote; fandogh image publish --version $TRAVIS_COMMIT; cd..;
+  - cd vote; fandogh image publish --version $TRAVIS_COMMIT; cd ..;
   - fandogh service apply -d -f manifests/vote-manifest.yml -p VERSION=$TRAVIS_COMMIT || travis_terminate 1;
